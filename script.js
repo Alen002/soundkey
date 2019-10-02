@@ -1,5 +1,5 @@
 document.onkeypress = () => {createCircle(), playAudio()};
-document.onclick = () => {createCircle(), playAudio()};
+document.click = () => {createCircle(), playAudio()};
 
 function createCircle() {
     var c = document.querySelector("#myCanvas");
