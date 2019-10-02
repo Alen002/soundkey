@@ -1,5 +1,7 @@
+
+
 document.onkeypress = () => {createCircle(), playAudio()};
-document.click = () => {createCircle(), playAudio()};
+document.onclick = () => {createCircle(), playAudio()};
 
 function createCircle() {
     var c = document.querySelector("#myCanvas");
@@ -9,20 +11,24 @@ function createCircle() {
     x = randPos().xRand;
     y = randPos().yRand;
     color = createColor();
+    
  
     let interval = setInterval(function drawCircle() { 
         z++;
         ctx.arc(x, y, z, 0, 2 * Math.PI); //x,y, radius
-    
         ctx.fillStyle = color;
         ctx.fill();
        
-        if (z > 250) clearInterval(interval);
-        
-    }, 1); 
+        if (z > 150) {
+            clearInterval(interval); 
+            ctx.arc(x, y, 2000, 0, 2 * Math.PI); //x,y, radius
+            ctx.fillStyle = 'black';
+            ctx.fill();
+        }     
+    }, 0.1); 
 
-    
-}//**************************************** */
+
+}
 
 function playAudio() {
     playlist = arraySounds();
